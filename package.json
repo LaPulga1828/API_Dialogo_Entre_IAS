@@ -19,8 +19,10 @@
   "homepage": "https://github.com/LaPulga1828/API_Dialogo_Entre_IAS#readme",
   "dependencies": {
     "@google/genai": "^0.13.0",
+    "body-parser": "^2.2.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "mongoose": "^8.14.2"
+    "mongoose": "^8.14.2",
+    "pdfmake": "^0.2.20"
   }
 }
