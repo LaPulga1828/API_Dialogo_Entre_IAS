@@ -39,16 +39,17 @@ main{
 .chat{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 
 .mensaje1{
     margin:0 30px;
     display: flex;
+    justify-content: right;
+    width: 85%;
 }
 
-/* borrar el width o heigth si no es necesario */
+/* modificar el heigth si es necesario */
 
 .burbuja-texto1{
     width: 100%;
@@ -61,9 +62,11 @@ main{
     background-color: #E5D4A8;
 }
 
-.mensaje2{
-    margin:0 30px;
+.mensaje2 {
+    margin: 0 30px; 
     display: flex;
+    width: 85%; 
+    margin-left: auto; 
 }
 
 .burbuja-texto2{
@@ -76,6 +79,8 @@ main{
     margin-right: 20px;
     background-color: #E5D4A8;
 }
+
+
 
 #redondo{
     border-radius: 50%;
@@ -99,7 +104,8 @@ main{
     border:none;
     font-size: 20px;
     border-radius: 10px;
-    background-color: #daa85e
+    background-color: #daa85e;
+    padding: 10px;
 }
 
 .bt1{
