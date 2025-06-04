@@ -1,9 +1,9 @@
-body{
+body {
     background-color: #6C684A;
     padding-top: 50px;
 }
 
-main{
+main {
     box-sizing: border-box;
     width: 90%;
     margin: auto;
@@ -15,13 +15,14 @@ main{
     padding: 30px;
 }
 
-.title{
+.title {
     text-align: center;
     font-size: 30px;
     margin: 0;
-    color:#3F4228
+    color: #3F4228
 }
-.nombres{
+
+.nombres {
     display: flex;
     padding: 20px;
     justify-content: space-between;
@@ -30,20 +31,24 @@ main{
     font-weight: bold;
 }
 
-.experto{
+.experto {
     border-radius: 10px;
     width: 40%;
     background-color: #DDC69C;
 }
 
-.chat{
-    display: flex;
-    flex-direction: column;
+.chat {
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 20px;
 }
 
 
-.mensaje1{
-    margin:0 30px;
+.mensaje1 {
+    margin: 0 30px;
     display: flex;
     justify-content: right;
     width: 85%;
@@ -51,75 +56,77 @@ main{
 
 /* modificar el heigth si es necesario */
 
-.burbuja-texto1{
-    width: 100%;
-    height: 50px;
+.burbuja-texto1 {
+
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     align-self: center;
     margin-left: 20px;
     background-color: #E5D4A8;
+    padding: 1rem;
 }
 
 .mensaje2 {
-    margin: 0 30px; 
+    margin: 0 30px;
     display: flex;
-    width: 85%; 
-    margin-left: auto; 
+    width: 85%;
+    margin-left: auto;
 }
 
-.burbuja-texto2{
-    width: 100%;
-    height: 50px;
+.burbuja-texto2 {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
     align-self: center;
     margin-right: 20px;
     background-color: #E5D4A8;
+    padding: 1rem;
 }
 
 
 
-#redondo{
+#redondo {
     border-radius: 50%;
     width: 100px;
     height: 100px;
 }
 
-.botones{
+.botones {
     display: flex;
     justify-content: space-between;
-    margin:10px;
+    margin: 10px;
 }
 
 
 
-.bt1, .bt2, .bt3, .bt4{
+.bt1,
+.bt2,
+.bt3,
+.bt4 {
     width: 24%;
     font-family: "Quicksand", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    border:none;
+    border: none;
     font-size: 20px;
     border-radius: 10px;
     background-color: #daa85e;
     padding: 10px;
 }
 
-.bt1{
+.bt1 {
     background-color: #DDC69C;
 }
 
-.bt2{
+.bt2 {
     background-color: #DDC69C;
 }
 
-.bt3{
+.bt3 {
     color: aliceblue;
 }
 
-.bt4{
+.bt4 {
     color: aliceblue;
 }

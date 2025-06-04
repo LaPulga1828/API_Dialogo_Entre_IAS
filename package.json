@@ -1,28 +1,24 @@
 {
-  "name": "api_dialogo_entre_ias",
+  "name": "debate",
   "version": "1.0.0",
-  "description": "Desarrollar una aplicación web que simule una conversación entre dos \"expertosvirtuales\" con diferentes perspectivas o roles, utilizando Node.js, Express, Mongoose y laAPI de Gemini para generar respuestas inteligentes.",
-  "main": "app.js",
+  "description": "",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LaPulga1828/API_Dialogo_Entre_IAS.git"
-  },
-  "author": "Jose Luis Rodriguez Tasco (LaPulga1828)",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/LaPulga1828/API_Dialogo_Entre_IAS/issues"
-  },
-  "homepage": "https://github.com/LaPulga1828/API_Dialogo_Entre_IAS#readme",
   "dependencies": {
-    "@google/genai": "^0.13.0",
-    "body-parser": "^2.2.0",
+    "@google/genai": "^0.12.0",
+    "@google/generative-ai": "^0.3.0",
+    "axios": "^1.9.0",
+    "debate": "file:",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "mongoose": "^8.14.2",
-    "pdfmake": "^0.2.20"
+    "mongoose": "^8.14.1",
+    "pdfkit": "^0.17.1"
   }
 }

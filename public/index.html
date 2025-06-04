@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API de Diálogo entre Expertos</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Barrio&family=Caveat:wght@400..700&family=Coral+Pixels&family=Indie+Flower&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Barrio&family=Caveat:wght@400..700&family=Coral+Pixels&family=Indie+Flower&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <main>
         <section class="title">
-                <h1>Diálogo entre expertos</h1>
+            <h1>Diálogo entre expertos</h1>
         </section>
 
         <section class="nombres">
@@ -26,34 +30,91 @@
         </section>
 
         <section class="chat">
-            <div class="chat-1">
-                <div class="mensaje1">
-                    <img id="redondo" src="./img/papa.png" alt="papa">
-                    <div class="burbuja-texto1">
-
-                    </div>
-                </div>
-            </div>
-
-            <br>
-
-            <div class="chat-2">
-                <div class="mensaje2">                    
-                    <div class="burbuja-texto2">
-                        
-                    </div>  
-                <img id="redondo" src="./img/terrorista.png" alt="terrorista">
-                  
-                </div>
-            </div>
+            
         </section>
 
         <section class="botones">
-            <button class="bt1">Respuesta de Juan Pablo II</button>
-            <button class="bt2">Respuesta de Khalid Sheikh Mohammed</button>            
-            <button class="bt3">Limpiar historial</button>
-            <button class="bt4">Exportar a PDF</button>
+            <button class="bt1"  id="bt-papa">Respuesta de Juan Pablo II</button>
+            <button class="bt2" id="bt-terrorista">Respuesta de Khalid Sheikh Mohammed</button>
+            <button class="bt3" id="bt-clear">Limpiar historial</button>
+            <button class="bt4" id="bt-pdf">Exportar a PDF</button>
         </section>
     </main>
 </body>
+<script>
+    const chatBox = document.querySelector('.chat');
+    const btn1 = document.getElementById('bt-papa');
+    const btn2 = document.getElementById('bt-terrorista');
+    const btnClear = document.getElementById('bt-clear');
+    const btnPDF = document.getElementById('bt-pdf');
+
+    const renderMensajes = async () => {
+        const res = await fetch('/chat');
+        const mensajes = await res.json();
+
+        chatBox.innerHTML = '';
+        mensajes.forEach(msg => {
+            let div;
+
+            if (msg.autor === 'Papa') {
+                // Mensaje del religioso
+                div = document.createElement('div');
+                div.className = 'chat-1';
+                div.innerHTML = `
+        <div class="mensaje1">
+            <img id="redondo" src="./img/papa.png" alt="papa">
+            <div class="burbuja-texto1">
+                ${msg.contenido}
+            </div>
+        </div>
+        `;
+            } else if (msg.autor === 'Terrorista') {
+                // Mensaje de la filosofa
+                div = document.createElement('div');
+                div.className = 'chat-2';
+                div.innerHTML = `
+        <div class="mensaje2">
+            <div class="burbuja-texto2">
+                ${msg.contenido}
+            </div>
+            <img id="redondo" src="./img/terrorista.png" alt="terrorista">
+        </div>
+        `;
+            }
+
+            chatBox.appendChild(div);
+            chatBox.appendChild(document.createElement('br')); // Agrega espacio entre mensajes
+        });
+
+        chatBox.scrollTop = chatBox.scrollHeight;
+    };
+
+
+    btn1.addEventListener('click', async () => {
+        btn1.disabled = true;
+        await fetch('/chat/papa', { method: 'POST' });
+        await renderMensajes();
+        btn1.disabled = false;
+    });
+
+    btn2.addEventListener('click', async () => {
+        btn2.disabled = true;
+        await fetch('/chat/terrorista', { method: 'POST' });
+        await renderMensajes();
+        btn2.disabled = false;
+    });
+
+    btnClear.addEventListener('click', async () => {
+        await fetch('/chat', { method: 'DELETE' });
+        await renderMensajes();
+    });
+
+    btnPDF.addEventListener('click', () => {
+        window.open('/chat/exportar', '_blank');
+    });
+
+
+    renderMensajes();
+</script>
+
 </html>
